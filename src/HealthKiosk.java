@@ -33,14 +33,14 @@ public class HealthKiosk {
                 int metricChoice = input.nextInt();
 
                 if (metricChoice == 1) {
-                    System.out.println("Enter weight in kg:");
+                    System.out.println("Enter weight in kg:"); // prompt to enter weight in kg
                     weight = input.nextDouble();
 
-                    System.out.println("Enter height in meters:");
+                    System.out.println("Enter height in meters:"); // prompt to enter height in meters
                     height = input.nextDouble();
 
                     BMI = weight / (height * height);
-                    BMI = Math.round(BMI * 10) / 10.0;
+                    BMI = Math.round(BMI * 10) / 10.0; // rounding the value of the BMI
                     System.out.println("Your BMI is: " + BMI);
 
                     if (BMI < 18.5) {
@@ -56,32 +56,32 @@ public class HealthKiosk {
                     metric = (int) Math.round(BMI);
 
                 } else if (metricChoice == 2) {
-                    System.out.println("Enter your required dosage in mg : ");
+                    System.out.println("Enter your required dosage in mg : "); // prompt to enter required dosage
                     RequiredDosage = input.nextDouble();
 
                     RequiredDosage = RequiredDosage / 250.0;
-                    int tabletsToDispense = (int) Math.ceil(RequiredDosage);
+                    int tabletsToDispense = (int) Math.ceil(RequiredDosage);  // rounding the value to the nearest integer
                     System.out.println("Number of tablets to dispense: " + tabletsToDispense);
 
                     metric = tabletsToDispense;
 
                 } else if (metricChoice == 3) {
-                    System.out.println("Enter yor angle in degrees:");
+                    System.out.println("Enter yor angle in degrees:"); // promppt for entering the angle
                     double angleDegrees = input.nextDouble();
 
-                    double angleRadians = Math.toRadians(angleDegrees);
+                    double angleRadians = Math.toRadians(angleDegrees); // converting angle measured in degrees to angle measured in radians
 
                     double sin = Math.sin(angleRadians);
                     double cos = Math.cos(angleRadians);
-                    System.out.println("Your ange is:" + angleDegrees);
-                    System.out.println("Your angle is:" + angleRadians);
+                    System.out.println("Your ange is:" + angleDegrees); // returning the sin of an angle measured in radians
+                    System.out.println("Your angle is:" + angleRadians); // returning the cos of an angle measures in radians
 
-                    sin = Math.round(sin * 1000) / 1000.0;
-                    cos = Math.round(cos * 1000) / 1000.0;
+                    sin = Math.round(sin * 1000) / 1000.0; // rounding the sin value to three decimal places
+                    cos = Math.round(cos * 1000) / 1000.0; // rounding the cos value to three decimal places
                     System.out.println("sin : " +sin);
                     System.out.println("cos : " +cos);
 
-                    metric = (int) Math.round(sin * 100);
+                    metric = (int) Math.round(sin * 100); // takes the sin value, scales it up by 100 and then rounds it to the nearest integer
 
                 } else {
                     System.out.println("Invalid metric choice");
@@ -100,6 +100,8 @@ public class HealthKiosk {
 
         char letter = (char)((int) (Math.random() * 26) +65);
 
+        // Method for generating four random numbers between the range of 3 and 9
+
         int L1 = (int) (Math.random() *(9-3+1)) + 3;
         int L2 = (int) (Math.random() *(9-3+1)) + 3;
         int L3 = (int) (Math.random() *(9-3+1)) + 3;
@@ -111,6 +113,9 @@ public class HealthKiosk {
         System.out.println("Your code is: " + codee);
 
         int length = codee.length();
+
+        // This whole block of code is to validate the ID format, meaning that it must start with a letter
+        // It must also contain 4 digits
 
         if (codee.length() == 5) {
             char letter1 = codee.charAt(0);
@@ -135,17 +140,17 @@ public class HealthKiosk {
         }
         input.nextLine();
 
-        System.out.println("Enter your first name: ");
+        System.out.println("Enter your first name: "); // prompt for entering your name
         String name = input.nextLine();
 
-        char letter1 = name.charAt(0);
+        char letter1 = name.charAt(0); // This method takes the first character of a word or string
 
-        char capitalize = Character.toUpperCase(letter1);
+        char capitalize = Character.toUpperCase(letter1); // method for converting the first character of a word or string to uppercase
         System.out.println("Your first name is: " + capitalize);
 
-        char shift = (char)('A' + (capitalize - 'A' + 2) % 26);
-        System.out.println("First character:" + capitalize);
-        System.out.println("Your shifted character is: " + shift);
+        char shift = (char)('A' + (capitalize - 'A' + 2) % 26); // This shifts the uppercase letter stored in capitalize by two positions forward
+        System.out.println("First character:" + capitalize); // This prints the first character of the first word or string
+        System.out.println("Your shifted character is: " + shift); // This prints the shifted character
 
         String lastTwo  = codee.substring(codee.length()-2);
 
@@ -154,9 +159,8 @@ public class HealthKiosk {
         String finalCode = ( shift + lastTwo +"-" + metric);
         System.out.println("Display Code: " + finalCode);
 
-        // =========================
-        // Task 5: Summary
-        // =========================
+        // summary to display info in full context depending on what you chose
+
         String summary= "";
 
         switch(code){
